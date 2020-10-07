@@ -1,6 +1,4 @@
 # Python4DS M2DM
-
-# Project Name
 Alim'Confiance Classifier - Python for Data Science Course
 
 #### -- Project Status: Active
