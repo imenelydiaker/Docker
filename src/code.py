@@ -41,3 +41,4 @@ y_pred = clf.predict(X_test_text)
 print(classification_report(y_test, y_pred))
 
 print(clf.predict(vectorizer.transform(["toto"])))
+

@@ -1,5 +1,4 @@
-from code import clf
-from code import vectorizer
+import code
 from typing import Optional
 from fastapi import FastAPI
 
@@ -13,5 +12,5 @@ def read_root():
 
 @app.get("/prediction/{restaurant_name}")
 def read_item(restaurant_name: str):
-    prediction = clf.predict(vectorizer.transform([restaurant_name]))
+    prediction = code.clf.predict(code.vectorizer.transform([restaurant_name]))
     return {"restaurant_name": restaurant_name,"prediction": str(prediction)}
