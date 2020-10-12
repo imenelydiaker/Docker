@@ -1,7 +1,7 @@
 # Python4DS M2DM
 Alim'Confiance Classifier - Python for Data Science Course
 
-#### -- Project Status: Active
+#### -- Project Status: Finished
 
 ## Project Intro/Objective
 This project exemplifies a data science pipeline
