@@ -5,10 +5,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
 import os
 
-
-if __name__ == '__main__' :
+def build_model() :
     # Read csv file
-    df_alim = pn.read_csv("../data/export_alimconfiance.csv", sep=";")
+    df_alim = pn.read_csv("data/export_alimconfiance.csv", sep=";")
     #print(data.columns)
 
     # Drop NA Values
@@ -44,4 +43,6 @@ if __name__ == '__main__' :
     # print(classification_report(y_test, y_pred))
 
     # print(clf.predict(vectorizer.transform(["toto"])))
+
+    return clf, vectorizer
 
