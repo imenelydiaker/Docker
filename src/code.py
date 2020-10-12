@@ -3,42 +3,45 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
+import os
 
-# Read csv file
-df_alim = pn.read_csv("../data/export_alimconfiance.csv", sep=";")
-#print(data.columns)
 
-# Drop NA Values
-df_alim2 = df_alim.dropna()
-# print(df_alim2.columns)
+if __name__ == '__main__' :
+    # Read csv file
+    df_alim = pn.read_csv("../data/export_alimconfiance.csv", sep=";")
+    #print(data.columns)
 
-# Slice Dataset into Y to predict variable and X variables
-df_alim2['texte'] = df_alim2['APP_Libelle_etablissement'] + " " + df_alim2['filtre']  + " " + df_alim2['ods_type_activite']
-#print(df_alim2['texte'].shape)
+    # Drop NA Values
+    df_alim2 = df_alim.dropna()
+    # print(df_alim2.columns)
 
-y = df_alim2['Synthese_eval_sanit']
-#print(y)
+    # Slice Dataset into Y to predict variable and X variables
+    df_alim2['texte'] = df_alim2['APP_Libelle_etablissement'] + " " + df_alim2['filtre']  + " " + df_alim2['ods_type_activite']
+    #print(df_alim2['texte'].shape)
 
-X = df_alim2["texte"]
-#print(X.shape)
+    y = df_alim2['Synthese_eval_sanit']
+    #print(y)
 
-# Train Test Split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
-#print(X_train.shape)
+    X = df_alim2["texte"]
+    #print(X.shape)
 
-# Vectorize X
-vectorizer = CountVectorizer()
-X_train_text = vectorizer.fit_transform(X_train)
-X_test_text = vectorizer.transform(X_test)
+    # Train Test Split
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
+    #print(X_train.shape)
 
-# Model training and prediction
-clf = LogisticRegression(max_iter=10000)
+    # Vectorize X
+    vectorizer = CountVectorizer()
+    X_train_text = vectorizer.fit_transform(X_train)
+    X_test_text = vectorizer.transform(X_test)
 
-clf.fit(X_train_text, y_train)
+    # Model training and prediction
+    clf = LogisticRegression(max_iter=10000)
 
-y_pred = clf.predict(X_test_text)
+    clf.fit(X_train_text, y_train)
 
-print(classification_report(y_test, y_pred))
+    y_pred = clf.predict(X_test_text)
 
-print(clf.predict(vectorizer.transform(["toto"])))
+    print(classification_report(y_test, y_pred))
+
+    print(clf.predict(vectorizer.transform(["toto"])))
 
