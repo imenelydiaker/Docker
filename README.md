@@ -23,4 +23,7 @@ This project exemplifies a data science pipeline
 ## Getting Started
 
 1. Create an Anaconda Environment : conda create --name Python4DS python = 3.7 -y
-2. Lauch : conda activate Python4DS
+2. Launch : conda activate Python4DS
+3. Build Docker image : docker build --tag  appli:1.0 .
+4. docker run --name test3 -p 8080:8080 -it IMAGE_ID 
+(docker image ls to get IMAGE_ID)
