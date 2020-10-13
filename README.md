@@ -13,6 +13,8 @@ This project exemplifies a data science pipeline
 * Scikit-learn
 * Dash
 * Numpy
+* Docker
+* FastAPI
 
 ## Getting Started
 1. Create an Anaconda Environment : conda create --name Python4DS python = 3.7 -y
