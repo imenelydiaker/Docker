@@ -17,9 +17,10 @@ This project exemplifies a data science pipeline
 * FastAPI
 
 ## Getting Started
-1. Create an Anaconda Environment : conda create --name Python4DS python = 3.7 -y
-2. Run : conda activate Python4DS
-3. Run : uvicorn src.api:app
+1. Download the following dataset and put it in a directory called "data" (in your project directory) : https://www.data.gouv.fr/fr/datasets/r/fff0cc27-977b-40d5-9c11-f7e4e79a0b72
+2. Create an Anaconda Environment : conda create --name Python4DS python = 3.7 -y
+3. Run : conda activate Python4DS
+4. Run : uvicorn src.api:app
 
 ## Docker
 1. Build Docker image : docker build --tag  appli:1.0 .
