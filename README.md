@@ -11,7 +11,6 @@ This project exemplifies a data science pipeline
 
 ### Technologies
 * Scikit-learn
-* Dash
 * Numpy
 * Docker
 * FastAPI
