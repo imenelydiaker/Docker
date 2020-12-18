@@ -1,24 +1,22 @@
+# install miniconda on the container
 FROM continuumio/miniconda3
-# installer miniconda sur le container
 
+# copy the code to the container
 COPY . /app
-# copier notre code sur le container
 
+# change working directory
 WORKDIR /app 
-# change le path de travail, comme un cd
 
+# create a conda environment
 RUN conda env create --file environment.yml 
-# créer un environnement conda
 
+# add conda path
 ENV PATH /opt/conda/envs/Python4DS/bin:$PATH
-# ajoute dans le path mon conda depuis là où elle est
 
+# define a default onda environment
 ENV CONDA_DEFAUT_ENV Python4DS 
-# définit un env anaconda par défaut (base d'habitude)
 
+# expose a port to communicate with the host
 EXPOSE 8080  
-# il faut exposer un port pour communiquer avec le host
-
-# CMD ["python, "code/code.py"]
 
 CMD ["uvicorn", "src.api:app", "--host", "0.0.0.0", "--port", "8080"]
